@@ -1,0 +1,39 @@
+{% load static %}
+{% load l10n %}
+{% load i18n %}
+
+
+<div class="tiles">
+    <div id="contacts_amount" class="tile little_tile">
+        <img class="tile_icon" src="{% static 'img/icons/contacts_amount_icon.svg'%}" alt="">
+        <div class="tile_text">
+            <p class="tile_name">{% translate "Количество контактов" %}</p>
+            <p class="tile_counter">1234</p>
+        </div>
+    </div>
+    <div id="potential" class="tile little_tile">
+        <img class="tile_icon" src="{% static 'img/icons/sum_icon.svg'%}" alt="">
+        <div class="tile_text">
+            <p class="tile_name">{% translate "Потенциальная прибыль" %}</p>
+            <p class="tile_counter">143 876 $</p>
+        </div>
+    </div>
+    <div id="prm_my_tokens" class="tile little_tile">
+        <img class="tile_icon" src="{% static 'img/icons/my_tokens_icon.svg'%}" alt="">
+        <div class="tile_text">
+            <p class="tile_name">{% translate "Мои токены PRM" %}</p>
+            <p class="tile_counter">454 543</p>
+        </div>
+    </div>
+    <div id="rate" class="tile little_tile">
+        <img class="tile_icon" src="{% static 'img/icons/rate_icon.svg'%}" alt="">
+        <div class="tile_text">
+            <p class="tile_name">{% translate "Курс 1 PRM токена " %}</p>
+            <p class="tile_counter">
+                <span>
+                    $ 0.001
+                </span>
+            </p>
+        </div>
+    </div>
+</div>

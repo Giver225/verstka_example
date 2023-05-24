@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load l10n %}
+{% load i18n %}
+{#{% load humanize %}#}
+{#{% load dashboard_extras %}#}
+
+{% block head_title %} - Dashboard{% endblock %}
+
+{% block content %}
+<img id="burger" src="{% static 'img/icons/menu_burger.svg' %}" alt="">
+<div class="dashboard_body">
+    <div id="sidenav" class="sidenav">
+        <div class="side_logo"></div>
+        <div class="menu">
+            {% with request.resolver_match.url_name as current_url %}
+            <a href="{% url 'index'%}" class="menu_item{% if current_url == 'index' %} active{% endif %}">
+
+                <svg class="menu_icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_0_1779)">
+                    <path d="M10.0001 19V14H14.0001V19C14.0001 19.55 14.4501 20 15.0001 20H18.0001C18.5501 20 19.0001 19.55 19.0001 19V12H20.7001C21.1601 12 21.3801 11.43 21.0301 11.13L12.6701 3.59997C12.2901 3.25997 11.7101 3.25997 11.3301 3.59997L2.9701 11.13C2.6301 11.43 2.8401 12 3.3001 12H5.0001V19C5.0001 19.55 5.4501 20 6.0001 20H9.0001C9.5501 20 10.0001 19.55 10.0001 19Z" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1779">
+                            <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <p class="menu_name">Dashboard</p>
+                <div class="active_line"></div>
+
+            </a>
+            <a href="{% url 'finance' %}" class="menu_item{% if current_url == 'finance' %} active{% endif %}">
+
+                <svg class="menu_icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_0_1779)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.4105 9.86058C20.3559 9.8571 20.2964 9.85712 20.2348 9.85715L20.2194 9.85715H17.8015C15.8086 9.85715 14.1033 11.4382 14.1033 13.5C14.1033 15.5618 15.8086 17.1429 17.8015 17.1429H20.2194L20.2348 17.1429C20.2964 17.1429 20.3559 17.1429 20.4105 17.1394C21.22 17.0879 21.9359 16.4495 21.9961 15.5577C22.0001 15.4992 22 15.4362 22 15.3778L22 15.3619V11.6381L22 11.6222C22 11.5638 22.0001 11.5008 21.9961 11.4423C21.9359 10.5506 21.22 9.91209 20.4105 9.86058ZM17.5872 14.4714C18.1002 14.4714 18.5162 14.0365 18.5162 13.5C18.5162 12.9635 18.1002 12.5286 17.5872 12.5286C17.0741 12.5286 16.6581 12.9635 16.6581 13.5C16.6581 14.0365 17.0741 14.4714 17.5872 14.4714Z" fill="#A3AED0"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.2341 18.6C20.3778 18.5963 20.4866 18.7304 20.4476 18.8699C20.2541 19.562 19.947 20.1518 19.4542 20.6485C18.7329 21.3755 17.8183 21.6981 16.6882 21.8512C15.5902 22 14.1872 22 12.4158 22H10.3794C8.60803 22 7.20501 22 6.10697 21.8512C4.97692 21.6981 4.06227 21.3755 3.34096 20.6485C2.61964 19.9215 2.29953 18.9997 2.1476 17.8608C1.99997 16.7541 1.99999 15.3401 2 13.5548V13.4452C1.99998 11.6599 1.99997 10.2459 2.1476 9.13924C2.29953 8.00031 2.61964 7.07848 3.34096 6.35149C4.06227 5.62451 4.97692 5.30188 6.10697 5.14876C7.205 4.99997 8.60802 4.99999 10.3794 5L12.4158 5C14.1872 4.99998 15.5902 4.99997 16.6882 5.14876C17.8183 5.30188 18.7329 5.62451 19.4542 6.35149C19.947 6.84817 20.2541 7.43804 20.4476 8.13012C20.4866 8.26959 20.3778 8.40376 20.2341 8.4L17.8015 8.40001C15.0673 8.40001 12.6575 10.5769 12.6575 13.5C12.6575 16.4231 15.0673 18.6 17.8015 18.6L20.2341 18.6ZM5.61446 8.88572C5.21522 8.88572 4.89157 9.21191 4.89157 9.61429C4.89157 10.0167 5.21522 10.3429 5.61446 10.3429H9.46988C9.86912 10.3429 10.1928 10.0167 10.1928 9.61429C10.1928 9.21191 9.86912 8.88572 9.46988 8.88572H5.61446Z" fill="#A3AED0"/>
+                        <path d="M7.77668 4.02439L9.73549 2.58126C10.7874 1.80625 12.2126 1.80625 13.2645 2.58126L15.2336 4.03197C14.4103 3.99995 13.4909 3.99998 12.4829 4H10.3123C9.39123 3.99998 8.5441 3.99996 7.77668 4.02439Z" fill="#A3AED0"/>                        
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1779">
+                            <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <p class="menu_name">Finance</p>
+                <div class="active_line"></div>
+
+            </a>
+            <a href="{% url 'team' %}" class="menu_item{% if current_url == 'team' %} active{% endif %}">
+
+                <svg class="menu_icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_0_1563)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2C14.2091 2 16 3.79086 16 6ZM16.5 22C14.8501 22 14.0251 22 13.5126 21.4874C13 20.9749 13 20.1499 13 18.5C13 16.8501 13 16.0251 13.5126 15.5126C14.0251 15 14.8501 15 16.5 15C18.1499 15 18.9749 15 19.4874 15.5126C20 16.0251 20 16.8501 20 18.5C20 20.1499 20 20.9749 19.4874 21.4874C18.9749 22 18.1499 22 16.5 22ZM18.468 17.7458C18.6958 17.518 18.6958 17.1487 18.468 16.9209C18.2402 16.693 17.8709 16.693 17.6431 16.9209L15.7222 18.8417L15.3569 18.4764C15.1291 18.2486 14.7598 18.2486 14.532 18.4764C14.3042 18.7042 14.3042 19.0736 14.532 19.3014L15.3097 20.0791C15.5375 20.307 15.9069 20.307 16.1347 20.0791L18.468 17.7458ZM12 13C13.24 13 14.4046 13.1842 15.4147 13.5074C15.0412 13.5162 14.6919 13.5355 14.3799 13.5774C13.737 13.6639 13.0334 13.8705 12.4519 14.4519C11.8705 15.0333 11.6639 15.737 11.5775 16.3799C11.4998 16.9576 11.4999 17.6635 11.5 18.414V18.586C11.4999 19.3365 11.4998 20.0424 11.5775 20.6201C11.594 20.7432 11.615 20.8686 11.6421 20.9949C7.94244 20.8884 5 19.1406 5 17C5 14.7909 8.13401 13 12 13Z" fill="#A3AED0"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1563">
+                            <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <p class="menu_name">Team</p>
+                <div class="active_line"></div>
+
+            </a>
+            <a href="{% url 'contact' %}" class="menu_item{% if current_url == 'contact' %} active{% endif %}">
+
+                <svg class="menu_icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_0_1563)">
+                        <path d="M15.5 7.5C15.5 9.433 13.933 11 12 11C10.067 11 8.5 9.433 8.5 7.5C8.5 5.567 10.067 4 12 4C13.933 4 15.5 5.567 15.5 7.5Z" fill="#A3AED0"/>
+                        <path d="M18 16.5C18 18.433 15.3137 20 12 20C8.68629 20 6 18.433 6 16.5C6 14.567 8.68629 13 12 13C15.3137 13 18 14.567 18 16.5Z" fill="#A3AED0"/>
+                        <path d="M7.12205 5C7.29951 5 7.47276 5.01741 7.64005 5.05056C7.23249 5.77446 7 6.61008 7 7.5C7 8.36825 7.22131 9.18482 7.61059 9.89636C7.45245 9.92583 7.28912 9.94126 7.12205 9.94126C5.70763 9.94126 4.56102 8.83512 4.56102 7.47063C4.56102 6.10614 5.70763 5 7.12205 5Z" fill="#A3AED0"/>
+                        <path d="M5.44734 18.986C4.87942 18.3071 4.5 17.474 4.5 16.5C4.5 15.5558 4.85657 14.744 5.39578 14.0767C3.4911 14.2245 2 15.2662 2 16.5294C2 17.8044 3.5173 18.8538 5.44734 18.986Z" fill="#A3AED0"/>
+                        <path d="M16.9999 7.5C16.9999 8.36825 16.7786 9.18482 16.3893 9.89636C16.5475 9.92583 16.7108 9.94126 16.8779 9.94126C18.2923 9.94126 19.4389 8.83512 19.4389 7.47063C19.4389 6.10614 18.2923 5 16.8779 5C16.7004 5 16.5272 5.01741 16.3599 5.05056C16.7674 5.77446 16.9999 6.61008 16.9999 7.5Z" fill="#A3AED0"/>
+                        <path d="M18.5526 18.986C20.4826 18.8538 21.9999 17.8044 21.9999 16.5294C21.9999 15.2662 20.5088 14.2245 18.6041 14.0767C19.1433 14.744 19.4999 15.5558 19.4999 16.5C19.4999 17.474 19.1205 18.3071 18.5526 18.986Z" fill="#A3AED0"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1563">
+                            <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <p class="menu_name">Contact</p>
+                <div class="active_line"></div>
+
+            </a>
+            <a href="{% url 'marketplace' %}" class="menu_item{% if current_url == 'marketplace' %} active{% endif %}">
+
+                <svg class="menu_icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_0_1563)">
+                        <path d="M16.55 13C17.3 13 17.96 12.59 18.3 11.97L21.88 5.48C22.25 4.82 21.77 4 21.01 4H6.21L5.27 2H2V4H4L7.6 11.59L6.25 14.03C5.52 15.37 6.48 17 8 17H20V15H8L9.1 13H16.55ZM7.16 6H19.31L16.55 11H9.53L7.16 6ZM8 18C6.9 18 6.01 18.9 6.01 20C6.01 21.1 6.9 22 8 22C9.1 22 10 21.1 10 20C10 18.9 9.1 18 8 18ZM18 18C16.9 18 16.01 18.9 16.01 20C16.01 21.1 16.9 22 18 22C19.1 22 20 21.1 20 20C20 18.9 19.1 18 18 18Z" fill="#A3AED0"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1563">
+                            <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <p class="menu_name">Marketplace</p>
+                <div class="active_line"></div>
+
+            </a>
+            <a href="https://presale.prm4all.com/" class="menu_item{% if current_url == 'token' %} active{% endif %}">
+
+                <svg class="menu_icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_0_1563)">
+                        <path d="M12.75 12C12.75 11.3096 13.3096 10.75 14 10.75C14.6904 10.75 15.25 11.3096 15.25 12C15.25 12.6904 14.6904 13.25 14 13.25C13.3096 13.25 12.75 12.6904 12.75 12Z" fill="#A3AED0"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM7.75 8C7.75 7.58579 7.41421 7.25 7 7.25C6.58579 7.25 6.25 7.58579 6.25 8L6.25 16C6.25 16.4142 6.58579 16.75 7 16.75C7.41421 16.75 7.75 16.4142 7.75 16L7.75 8ZM11.5303 8.46967C11.2374 8.17678 10.7626 8.17678 10.4697 8.46967C10.1768 8.76256 10.1768 9.23744 10.4697 9.53033L11.4697 10.5303C11.5126 10.5733 11.5595 10.6099 11.6091 10.6403C11.3806 11.0413 11.25 11.5054 11.25 12C11.25 12.4946 11.3806 12.9587 11.6091 13.3597C11.5595 13.3901 11.5126 13.4267 11.4697 13.4697L10.4697 14.4697C10.1768 14.7626 10.1768 15.2374 10.4697 15.5303C10.7626 15.8232 11.2374 15.8232 11.5303 15.5303L12.5303 14.5303C12.5733 14.4874 12.6099 14.4405 12.6403 14.3909C13.0413 14.6194 13.5054 14.75 14 14.75C14.4946 14.75 14.9587 14.6194 15.3597 14.3909C15.3901 14.4405 15.4267 14.4874 15.4697 14.5303L16.4697 15.5303C16.7626 15.8232 17.2374 15.8232 17.5303 15.5303C17.8232 15.2374 17.8232 14.7626 17.5303 14.4697L16.5303 13.4697C16.4874 13.4267 16.4405 13.3901 16.3909 13.3597C16.6194 12.9587 16.75 12.4946 16.75 12C16.75 11.5054 16.6194 11.0413 16.3909 10.6403C16.4405 10.6099 16.4874 10.5733 16.5303 10.5303L17.5303 9.53033C17.8232 9.23744 17.8232 8.76256 17.5303 8.46967C17.2374 8.17678 16.7626 8.17678 16.4697 8.46967L15.4697 9.46967C15.4267 9.51262 15.3901 9.55949 15.3597 9.60912C14.9587 9.38057 14.4946 9.25 14 9.25C13.5054 9.25 13.0413 9.38057 12.6403 9.60912C12.6099 9.55949 12.5733 9.51262 12.5303 9.46967L11.5303 8.46967Z" fill="#A3AED0"/>                        
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1563">
+                            <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <p class="menu_name">Token</p>
+                <div class="active_line"></div>
+
+            </a>
+            <a href="{% url 'profile' %}" class="menu_item{% if current_url == 'profile' %} active{% endif %}">
+                <svg class="menu_icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_0_1555)">
+                    <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V19C4 19.55 4.45 20 5 20H19C19.55 20 20 19.55 20 19V18C20 15.34 14.67 14 12 14Z" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1555">
+                            <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <p class="menu_name">Profile</p>
+                <div class="active_line"></div>
+            </a>
+            
+            <a href="#" class="menu_item">
+                <svg class="menu_icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_0_1551)">
+                    <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM9 8V6C9 4.34 10.34 3 12 3C13.66 3 15 4.34 15 6V8H9Z" />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_0_1551">
+                            <rect width="24" height="24" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+
+                <p class="menu_name">Sign Out</p>
+            </a>
+            {% endwith %}
+        </div>
+    </div>
+
+    <div id="main" class="main">
+        <p class="page_path">Pages / {% block crumbs_title %}Dashboard{% endblock %}</p>
+        <div class="tile header">
+
+            <div class="page_name_div">
+                <h1 class="page_name">{% block page_title %}Dashboard{% endblock %}</h1>
+            </div>
+            <div class="bio_part">
+                <button id="invite_link" class="btn btn-slim invite_link">
+                    <span>{% translate "Ссылка для приглашения" %}</span>
+                    <span>{% translate "Скопировано" %}</span>
+                </button>
+                <a href="" class="metamask_button">
+                    <img src="{% static 'img/icons/metamask.svg'%}" alt="metamask">
+                </a>
+                <a href="{% url 'profile' %}">
+                    <img class="avatar-img avatar_icon" src="{% static 'img/default.png' %}" alt="Avatar">
+                </a>
+            </div>
+        </div>
+        {% block inner_top %}
+        {% include "dashboard/components/user_balance.html" %}
+        {% endblock inner_top %}
+
+        {% block inner_bot %}{% endblock inner_bot %}
+
+        <div class="footer">
+            <p class="footer_text">© 2023 PRM4ALL. All Rights Reserved.</p>
+            <div class="footer_links">
+                <a href="#" class="footer_link">Web 3.0</a>
+                <a href="#" class="footer_link">WhitePaper</a>
+                <a href="#" class="footer_link">SmartContract</a>
+            </div>
+        </div>
+
+    </div>
+</div >
+{% endblock content %}
+
+{% block inline_javascript %}
+{% endblock inline_javascript %}

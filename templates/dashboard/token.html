@@ -1,0 +1,48 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% load l10n %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load dashboard_extras %}
+
+{% block head_title %} - Token{% endblock head_title %}
+{% block crumbs_title %}Token{% endblock crumbs_title %}
+{% block page_title %}Token{% endblock page_title %}
+
+{% block inner_top %}
+    {{ block.super }}
+{% endblock inner_top %}
+
+{% block inner_bot %}
+<div id="big_tiles_2" class="big_tiles">
+    <div id="round" class="big_tile tile">
+        <h3 class="big_name">{% translate "Покупай токены PRM и зарабатывай вместе с нами" %}</h3>
+
+        {% include 'dashboard/components/token_active_round.html' %}
+
+        <form class="form-slim buy-token-form" method="POST">
+            {% csrf_token %}
+            {{ buy_token_form|crispy }}
+            <input type="hidden" value="{{ token_active_round.unit_price|unlocalize }}" name="current_token_price" id="current_token_price">
+            <p class="grey_text" id="buy_token_description">Сеть BNB Smart Chain (BEP20).  Минимальная сумма покупки 1000 USDT.<br>Среднее время зачисления 5 мин. Добавьте токены PRM в MetaMask.</p>
+            <button id="buyButton" class="btn btn-slim" type="button">{% translate "Купить" %}</button>
+        </form>
+        
+
+    </div>
+
+    {% include 'dashboard/components/token_rounds.html' %}
+
+</div>
+
+{% include "dashboard/components/transaction_history.html" %}
+
+{% endblock inner_bot %}
+
+
+{% block inline_javascript %}
+<script src="{% static "js/smart-logic.js" %}"></script>
+<script src="{% static "js/token-buy-form.js" %}"></script>
+{% endblock inline_javascript %}

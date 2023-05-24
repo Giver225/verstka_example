@@ -1,0 +1,102 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+{% load l10n %}
+{% load i18n %}
+
+{% block head_title %} - Finance{% endblock head_title %}
+{% block crumbs_title %}Finance{% endblock crumbs_title %}
+{% block page_title %}Finance{% endblock page_title %}
+
+{% block inner_top %}
+    {{ block.super }}
+{% endblock inner_top %}
+
+{% block inner_bot %}
+<div class="big_tiles">
+    <div id="finance" class="tile big_tile">
+        <div class="finance_main">
+            <h3 class="big_name">{% translate "Финансы" %}</h3>
+            <p class="description">{% translate "Покажи на что ты способен!" %}</p>
+            <div class="finance_count finance_count_alone">
+                <div class="finance_counter">
+                    <p class="big_counter">$ 543</p>
+                    <p class="grey_text">Ваш доход</p>
+                </div>
+            </div>
+            <div class="last_button_row">
+                <button class="btn btn-slim">Ввод</button>
+                <button class="btn btn-slim">Вывод</button>
+                <button class="btn btn-slim">Перевод</button>
+            </div>
+        </div>
+    </div>
+    <div id="finance" class="tile big_tile">
+        <div class="finance_main">
+            <h3 class="big_name">{% translate "Ваш потенциальный доход" %}</h3>
+            <p class="description">{% translate "Покажи на что ты способен!" %}</p>
+            <div class="finance_count finance_count_alone">
+                <div class="finance_counter">
+                    <p class="big_counter">$ 92 234</p>
+                    <p class="grey_text">Потенциальный доход</p>
+                </div>
+            </div>
+            <div class="last_button_row">
+                <button class="btn btn-slim">Формула расчета потенциального дохода</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<section class="tile tile-lg">
+    <h2 class="big_name">{% translate "История баланса" %}</h2>
+    <div class="flexible-table">
+        <div class="row row-header">
+            <div class="cell">{% translate "Сумма $" %}</div>
+            <div class="cell">{% translate "Тип" %}</div>
+            <div class="cell">{% translate "От кого" %}</div>
+            <div class="cell">{% translate "Дата начисления" %}</div>
+        </div>
+        <div class="row">
+            <div class="cell">245 345</div>
+            <div class="cell">покупка</div>
+            <div class="cell">presale</div>
+            <div class="cell">24.Jan.2023</div>
+        </div>
+        <div class="row">
+            <div class="cell">10 000</div>
+            <div class="cell">бонус 5%</div>
+            <div class="cell">login partner</div>
+            <div class="cell">24.Jan.2023</div>
+        </div>
+        <div class="row">
+            <div class="cell">245 345</div>
+            <div class="cell">покупка</div>
+            <div class="cell">presale</div>
+            <div class="cell">24.Jan.2023</div>
+        </div>
+        <div class="row">
+            <div class="cell">10 000</div>
+            <div class="cell">бонус 5%</div>
+            <div class="cell">login partner</div>
+            <div class="cell">24.Jan.2023</div>
+        </div>
+    </div>
+    <div class="pages">
+        <select class="page_amount_selector">
+            <option>Показывать по 10 записей</option>
+            <option>Показывать по 25 записей</option>
+            <option>Показывать по 50 записей</option>
+        </select>
+        <ul class="pagination">
+            <li><button class="page_btn"><</button></li>
+            <li><button class="page_btn active_page">1</button></li>
+            <li><button class="page_btn">2</button></li>
+            <li><button class="page_btn">3</button></li>
+            <li><button class="page_btn">...</button></li>
+            <li><button class="page_btn">10</button></li>
+            <li><button class="page_btn">></button></li>
+        </ul>
+    </div>
+</section>
+{% endblock inner_bot %}

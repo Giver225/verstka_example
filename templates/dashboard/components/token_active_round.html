@@ -1,0 +1,44 @@
+{% load static %}
+{% load humanize %}
+{% load l10n %}
+{% load i18n %}
+{% load dashboard_extras %}
+
+<div id="token_active_round" class="round_content"
+    {% if HTMX_ALLOW_POLLING %}
+    hx-get="{% url 'dashboard:poll_active_round' %}"
+    hx-trigger="every 10s"
+    hx-swap="outerHTML"
+    {% endif %}>
+    <div class="table">
+        <p class="description">{% translate "Раунд" %}</p>
+        <p class="description">{% translate "Цена" %}</p>
+        <p class="description">{% translate "Осталось токенов" %}</p>
+        <p class="description">{% translate "Прогресс" %}</p>
+
+        <div class="round_number">
+            <img src="{% static 'img/icons/checkbox_active.svg'%}" alt="checkbox_active">
+            <p class="round_percent">
+                {{ token_active_round.name }}
+                {{ token_active_round.percent_share }}%
+            </p>
+        </div>
+        <p class="price">
+            {{ token_active_round.currency }}
+            {{ token_active_round.unit_price|strip_zeros|unlocalize }}
+        </p>
+        <p class="total_cost">
+            {{ token_active_round.available_amount|intcomma }}
+        </p>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: {{ token_active_round.progress|unlocalize }}%"></div>
+                <div class="bar_delimeters">
+                    <div class="bar_delimeter bar_delimeter_25 "></div>
+                    <div class="bar_delimeter bar_delimeter_50 "></div>
+                    <div class="bar_delimeter bar_delimeter_75 "></div>
+                </div >
+            </div>
+        </div>
+    </div>
+</div >

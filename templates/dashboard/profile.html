@@ -1,0 +1,192 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+{% load i18n %}
+{#{% load crispy_forms_tags %}#}
+
+
+{% block head_title %} - Profile{% endblock head_title %}
+{% block crumbs_title %}Profile{% endblock crumbs_title %}
+{% block page_title %}Profile{% endblock page_title %}
+
+{% block inner_top %}
+<div class="profile_tiles">
+    <div class="profile_tile tile">
+        <div class="profile_info">
+            <div class="avatar">
+                <img class="avatar-img avatar_pic" src="{% static 'img/default.png' %}" alt="Avatar">
+                <img id="avatar-select" class="avatar_change" src="{% static 'img/icons/change_img.svg' %}" alt="Change avatar">
+            </div>
+            <div class="profile_text">
+                <p class="name">Anna Rich</p>
+                <p class="registration_date description">
+                    {% translate "Дата регистрации" %}: 21.01.2023
+                </p>
+            </div>
+            <div class="profile_nums">
+                <div id="profile_token_amount" class="profile_amount">
+                    <p class="profile_counter">453 536</p>
+                    <p class="description">{% translate "Всего токенов" %}</p>
+                </div>
+                <div class="profile_amount">
+                    <p class="profile_counter">53</p>
+                    <p class="description">{% translate "Приглашенных" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="investor_tile tile">
+        <h3 class="invite_text">
+            {% translate "Пригласи инвестора в проект<br> и получи 5% в токенах!" %}
+        </h3>
+
+    </div>
+</div>
+{% endblock inner_top %}
+
+{% block inner_bot %}
+<div id="settings" class="full_tile tile">
+    <div class="settings_text">
+        <h3 class="big_name">{% translate "Редактировать профиль" %}</h3>
+    </div >
+    <form id="avatar-form" method="POST" enctype="multipart/form-data" action="#">
+        {% csrf_token %}
+        <input type="file" name="avatar" id="avatar-input" style="display: none;" onchange="handleAvatarSelect()">
+        <div id="error-block" class="alert-error"></div>
+    </form>
+
+    <form id="profile-form" class="form settings_table" method="POST">
+        {% csrf_token %}
+        <div id="div_id_first_name" class="control-group"> <label for="id_first_name" class="control-label ">
+                Имя
+            </label> <div class="controls"> <input type="text" name="first_name" value="Anna" maxlength="150" class="textinput textInput" id="id_first_name"> </div> </div> <div id="div_id_last_name" class="control-group"> <label for="id_last_name" class="control-label ">
+                Фамилия
+            </label> <div class="controls"> <input type="text" name="last_name" value="Rich" maxlength="150" class="textinput textInput" id="id_last_name"> </div> </div> <div id="div_id_email" class="control-group"> <label for="id_email" class="control-label ">
+                Адрес электронной почты
+            </label> <div class="controls"> <input type="email" name="email" value="Rich@google.com" maxlength="254" class="emailinput" id="id_email"> </div> </div> <div id="div_id_birthday" class="control-group"> <label for="id_birthday" class="control-label ">
+                Дата рождения
+            </label> <div class="controls"> <input type="date" name="birthday" class="textinput textInput" id="id_birthday"> </div> </div> <div id="div_id_city" class="control-group"> <label for="id_city" class="control-label ">
+                Город
+            </label> <div class="controls"> <input type="text" name="city" class="textinput textInput" id="id_city"> </div> </div> <div id="div_id_metamask_wallet" class="control-group"> <label for="id_metamask_wallet" class="control-label ">
+                Metamask
+            </label> <div class="controls"> <input type="text" name="metamask_wallet" value="0xe94018Cefd6672E6FF6fcBb1529fD4B77B5ab28C" maxlength="150" class="textinput textInput" id="id_metamask_wallet"> </div> </div> <div id="div_id_password" class="control-group"> <label for="id_password" class="control-label ">
+                Пароль
+            </label> <div class="controls"> <input type="password" name="password" autocomplete="new-password" class="textinput textInput" id="id_password"> </div> </div> <div id="div_id_password1" class="control-group"> <label for="id_password1" class="control-label ">
+                Подтверждение пароля
+            </label> <div class="controls"> <input type="password" name="password1" autocomplete="new-password" class="textinput textInput" id="id_password1"> </div> </div>
+
+        <div class="settings_btn_bar">
+            <button id="settings_metamask_btn" class="btn btn-slim-wide" type="submit">
+                Подтвердить metamask
+            </button>
+            <button id="settings_save_btn" class="btn btn-slim-wide" type="submit">
+                Сохранить
+            </button>
+        </div>
+    </form>
+</div>
+<div id="settings" class="full_tile tile">
+    <div class="settings_text">
+        <h3 class="big_name">{% translate "Создать landing page" %}</h3>
+    </div >
+    <form id="profile-form" class="form settings_table" method="POST">
+        {% csrf_token %}
+        <div class="control-group">
+            <label for="id_first_name" class="control-label">VK</label>
+            <div class="controls">
+                <input placeholder="@AnnaRich" type="text" name="first_name"  maxlength="150" class="textinput textInput" id="id_first_name">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="id_first_name" class="control-label">Instagram</label>
+            <div class="controls">
+                <input placeholder="@AnnaRich" type="text" name="first_name"  maxlength="150" class="textinput textInput" id="id_first_name">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="id_first_name" class="control-label">Telegram</label>
+            <div class="controls">
+                <input placeholder="@AnnaRich" type="text" name="first_name"  maxlength="150" class="textinput textInput" id="id_first_name">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="id_first_name" class="control-label">YouTube</label>
+            <div class="controls">
+                <input placeholder="@AnnaRich" type="text" name="first_name"  maxlength="150" class="textinput textInput" id="id_first_name">
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="id_first_name" class="control-label">{% translate 'О себе' %}</label>
+            <div class="controls">
+                <input placeholder="{% translate 'Хочу представиться ...' %}" type="text" name="first_name"  maxlength="150" class="textinput textInput" id="id_first_name">
+            </div>
+        </div>
+        <div class="settings_btn_bar">
+            <button id="settings_metamask_btn" class="btn btn-slim-wide" type="submit" id="profile-submit-btn">
+                {% translate "Сохранить лендинг" %}
+            </button>
+            <button id="settings_save_btn" class="btn btn-slim-wide" type="submit" id="profile-submit-btn">
+                {% translate "Копировать ссылку" %}
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock inner_bot %}
+
+<!-- 
+{% block inline_javascript %}
+{#<script defer src="{% static 'js/avatar-update.js' %}"></script>#}
+{##}
+{#{% if not user.metamask_confirmed %}#}
+{#<script defer src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>#}
+{#<script>#}
+{#    const profileForm = document.getElementById("profile-form")#}
+{#    function metamaskConfirm() {#}
+{#        try {#}
+{#            window.ethereum.request({ method: 'eth_requestAccounts' }).then(function () {#}
+{#                provider = new ethers.providers.Web3Provider(window.ethereum);#}
+{#                provider.getNetwork().then(function (result) {#}
+{#                    provider.listAccounts().then(function (result) {#}
+{#                        accountAddress = result[0];#}
+{#                        signer = provider.getSigner();#}
+{#                        signer.signMessage("{{ csrf_token }}").then((signature) => {#}
+{#                            // Send POST request#}
+{#                            fetch("{% url 'dashboard:metamask_confirm' %}", {#}
+{#                                method: 'POST',#}
+{#                                headers: {#}
+{#                                    'Content-Type': 'application/json',#}
+{#                                    'X-CSRFToken': "{{ csrf_token }}",#}
+{#                                },#}
+{#                                body: JSON.stringify({#}
+{#                                    user: '{{ request.user.username }}',#}
+{#                                    accountAddress: accountAddress,#}
+{#                                    signature: signature,#}
+{#                                    csrf_token: "{{ csrf_token }}"#}
+{#                                })#}
+{#                            }).then(function (response) {#}
+{#                                // Handle response#}
+{#                                console.log(response);#}
+{#                                document.getElementById('id_metamask_wallet').value = accountAddress;#}
+{#                                profileForm.submit();#}
+{#                            });#}
+{#                        })#}
+{#                    });#}
+{#                });#}
+{#            }).catch(error => {#}
+{#                alert(`Подтвердите запрос Metamask\nОшибка: ${error.message}`)#}
+{#                profileForm.submit();#}
+{#            });#}
+{#        } catch {#}
+{#            alert('Пожалуйста установите MetaMask приложение для вашего браузера.');#}
+{#            profileForm.submit();#}
+{#        }#}
+{#    }#}
+{##}
+{#    document.getElementById("profile-submit-btn").addEventListener("click", (event) => {#}
+{#        event.preventDefault();#}
+{#        metamaskConfirm();#}
+{#    });#}
+{#</script>#}
+{#{% endif %}#}
+
+{% endblock inline_javascript %} -->

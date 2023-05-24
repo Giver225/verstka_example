@@ -1,0 +1,144 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+{% load l10n %}
+{% load i18n %}
+
+{% block head_title %} - Contact{% endblock head_title %}
+{% block crumbs_title %}Contact{% endblock crumbs_title %}
+{% block page_title %}Contact{% endblock page_title %}
+
+{% block inner_top %}
+    {{ block.super }}
+{% endblock inner_top %}
+
+{% block inner_bot %}
+<div class="big_tiles">
+    <div id="last_contact" class="tile big_tile">
+        <div class="last_contact_main">
+            <h3 class="big_name">{% translate "Последний контакт" %}</h3>
+            <p class="description">{% translate "С этим человеком вы недавно общались" %}</p>
+            <div class="last_contact_info">
+                <div class="avatar_desc">
+                    
+                    <img class="avatar-img last_contact_avatar" src="{% static 'img/last_contact_avatar.png' %}" alt="Avatar">
+                    
+                    <div class="last_contact_text">
+                        <p class="description last_contact_name">Scroodge McDuck</p>
+                        <p class="description last_contact_status">Статус:Лидер</p>
+                    </div>
+                </div>
+                <div class="last_button_row">
+                    <button class="btn btn-slim">Связаться</button>
+                    <button class="btn btn-slim">Level UP</button>
+                </div>
+            </div>
+        </div>
+        <div class="speedometer">
+            <img class="speedometer_img" src="{% static 'img/speedometer.svg' %}" alt="">
+            <p class="grey_text">Лидер</p>
+            
+        </div>
+    </div>
+    <div class="tile big_tile">
+        <div>
+            <h3 class="big_name">{% translate "Статистика контактов" %}</h3>
+            <p class="description">{% translate "Показана статистика за последний месяц" %}</p>
+            <img id="statistic_schedule" src="{% static 'img/statistic_schedule.png' %}" alt="">
+        </div>
+    </div>
+</div>
+<section class="tile tile-lg">
+    <h2 class="big_name">{% translate "Моя команда" %}</h2>
+    <div class="flexible-table">
+        <div class="row row-header">
+            <div class="cell">{% translate "ФИО" %}</div>
+            <div class="cell">{% translate "Логин" %}</div>
+            <div class="cell">{% translate "Телефон" %}</div>
+            <div class="cell">{% translate "Telegram" %}</div>
+            <div class="cell">{% translate "Активен до" %}</div>
+            <div class="cell">{% translate "В первой линии" %}</div>
+            <div class="cell">{% translate "В структуре" %}</div>
+            <div class="cell">{% translate "Товарооборот" %}</div>
+            <div class="cell">{% translate "Страна" %}</div>
+            <div class="cell">{% translate "Город" %}</div>
+        </div>
+        <div class="row">
+            <div class="cell">Василий Петрович Уткин</div>
+            <div class="cell">Superman</div>
+            <div class="cell">890355544444</div>
+            <div class="cell">@Blabla</div>
+            <div class="cell">24.Jan.2023</div>
+            <div class="cell">123</div>
+            <div class="cell">213</div>
+            <div class="cell">$ 2345</div>
+            <div class="cell">Russia</div>
+            <div class="cell">Moscow</div>
+        </div>
+        <div class="row">
+            <div class="cell">Василий Петрович Уткин</div>
+            <div class="cell">Superman</div>
+            <div class="cell">890355544444</div>
+            <div class="cell">@Blabla</div>
+            <div class="cell">24.Jan.2023</div>
+            <div class="cell">123</div>
+            <div class="cell">213</div>
+            <div class="cell">$ 2345</div>
+            <div class="cell">Russia</div>
+            <div class="cell">Moscow</div>
+        </div>
+        <div class="row">
+            <div class="cell">Василий Петрович Уткин</div>
+            <div class="cell">Superman</div>
+            <div class="cell">890355544444</div>
+            <div class="cell">@Blabla</div>
+            <div class="cell">24.Jan.2023</div>
+            <div class="cell">123</div>
+            <div class="cell">213</div>
+            <div class="cell">$ 2345</div>
+            <div class="cell">Russia</div>
+            <div class="cell">Moscow</div>
+        </div>
+        <div class="row">
+            <div class="cell">Василий Петрович Уткин</div>
+            <div class="cell">Superman</div>
+            <div class="cell">890355544444</div>
+            <div class="cell">@Blabla</div>
+            <div class="cell">24.Jan.2023</div>
+            <div class="cell">123</div>
+            <div class="cell">213</div>
+            <div class="cell">$ 2345</div>
+            <div class="cell">Russia</div>
+            <div class="cell">Moscow</div>
+        </div>
+        <div class="row">
+            <div class="cell">Василий Петрович Уткин</div>
+            <div class="cell">Superman</div>
+            <div class="cell">890355544444</div>
+            <div class="cell">@Blabla</div>
+            <div class="cell">24.Jan.2023</div>
+            <div class="cell">123</div>
+            <div class="cell">213</div>
+            <div class="cell">$ 2345</div>
+            <div class="cell">Russia</div>
+            <div class="cell">Moscow</div>
+        </div>
+    </div>
+    <div class="pages">
+        <select class="page_amount_selector">
+            <option>Показывать по 10 записей</option>
+            <option>Показывать по 25 записей</option>
+            <option>Показывать по 50 записей</option>
+        </select>
+        <ul class="pagination">
+            <li><button class="page_btn"><</button></li>
+            <li><button class="page_btn active_page">1</button></li>
+            <li><button class="page_btn">2</button></li>
+            <li><button class="page_btn">3</button></li>
+            <li><button class="page_btn">...</button></li>
+            <li><button class="page_btn">10</button></li>
+            <li><button class="page_btn">></button></li>
+        </ul>
+    </div>
+</section>
+{% endblock inner_bot %}

@@ -1,0 +1,70 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+{% load l10n %}
+{% load i18n %}
+{#{% load humanize %}#}
+
+{% block inner_top %}
+    {{ block.super }}
+{% endblock inner_top %}
+
+{% block inner_bot %}
+<div class="big_tiles">
+    <div id="last_contact" class="tile big_tile">
+        <div class="last_contact_main">
+            <h3 class="big_name">{% translate "Последний контакт" %}</h3>
+            <p class="description">{% translate "С этим человеком вы недавно общались" %}</p>
+            <div class="last_contact_info">
+                <div class="avatar_desc">
+                    
+                    <img class="avatar-img last_contact_avatar" src="{% static 'img/last_contact_avatar.png' %}" alt="Avatar">
+                    
+                    <div class="last_contact_text">
+                        <p class="description last_contact_name">Scroodge McDuck</p>
+                        <p class="description last_contact_status">Статус:Лидер</p>
+                    </div>
+                </div>
+                <div class="last_button_row">
+                    <button class="btn btn-slim">Связаться</button>
+                    <button class="btn btn-slim">Level UP</button>
+                </div>
+            </div>
+        </div>
+        <div class="speedometer">
+            <img class="speedometer_img" src="{% static 'img/speedometer.svg' %}" alt="">
+            <p class="grey_text">Лидер</p>
+            
+        </div>
+    </div>
+    <div id="finance" class="tile big_tile">
+        <div class="finance_main">
+            <h3 class="big_name">{% translate "Финансы" %}</h3>
+            <p class="description">{% translate "Покажи на что ты способен!" %}</p>
+            
+                    <div class="finance_count">
+                        <div class="finance_counter">
+                            <p class="big_counter">$ 543</p>
+                            <p class="grey_text">Ваш доход</p>
+                        </div>
+                        <div class="finance_counter">
+                            <p class="big_counter">$ 92 234</p>
+                            <p class="grey_text">Потенциальный доход</p>
+                        </div>
+                    </div>
+                <div class="last_button_row center_row">
+                    <button class="btn btn-slim">Ввод</button>
+                    <button class="btn btn-slim">Вывод</button>
+                    <button class="btn btn-slim">Перевод</button>
+                </div>
+        </div>
+    </div>
+    <div class="tile big_tile">
+        <div>
+            <h3 class="big_name">{% translate "Статистика контактов" %}</h3>
+            <p class="description">{% translate "Показана статистика за последний месяц" %}</p>
+            <img id="statistic_schedule" src="{% static 'img/statistic_schedule.png' %}" alt="">
+        </div>
+    </div>
+</div>
+{% endblock inner_bot %}

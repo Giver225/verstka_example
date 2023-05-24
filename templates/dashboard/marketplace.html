@@ -1,0 +1,251 @@
+{% extends "dashboard/base.html" %}
+
+{% load static %}
+{% load l10n %}
+{% load i18n %}
+
+{% block head_title %} - Marketplace{% endblock head_title %}
+{% block crumbs_title %}Marketplace{% endblock crumbs_title %}
+{% block page_title %}Marketplace{% endblock page_title %}
+
+
+{% block inner_top %}
+    {{ block.super }}
+{% endblock inner_top %}
+
+{% block inner_bot %}
+
+<section id="rocket" class="tile tile-lg" >
+    <h3 class="lg_name white_text">Приобретай<br>эффективные стратегии!</h3>
+    <p>И зарабатывай вместе с профессионалами!</p>
+    <div class="last_button_row">
+        <button class="btn btn-slim white_btn">За покупками</button>
+        <button class="btn btn-slim light_btn">Watch video</button>
+    </div>
+</section>
+
+<div class="label_row">
+    <h3 class="label_name">Активность PRM</h3>
+    <div class="label_btn_row">
+        <button class="label_btn">Активность</button>
+        <button class="label_btn">Редактор</button>
+        <button class="label_btn">Стратегии</button>
+    </div>
+</div>
+
+<section class="horizontal_scroll">
+    <div class="scroll">
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/start_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Start</p>
+            <p class="activity_time grey_text">Активность 1 месяц</p>
+            <div class="price_row">
+                <p class="price">Price: $15</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/basic_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Basic</p>
+            <p class="activity_time grey_text">Активность 3 месяца</p>
+            <div class="price_row">
+                <p class="price">Price: $40</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/middle_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Middle</p>
+            <p class="activity_time grey_text">Активность 6 месяцев</p>
+            <div class="price_row">
+                <p class="price">Price: $70</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/max_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Max</p>
+            <p class="activity_time grey_text">Активность 12 месяцев</p>
+            <div class="price_row">
+                <p class="price">Price: $120</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="label_row">
+    <h3 class="label_name">Активность PRM</h3>
+</div>
+
+<section class="horizontal_scroll">
+    <div class="scroll">
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/max_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Study</p>
+            <p class="activity_time grey_text">1 стратегия</p>
+            <div class="price_row">
+                <p class="price">Price: $100</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/agent_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Agent</p>
+            <p class="activity_time grey_text">4 стратегии</p>
+            <div class="price_row">
+                <p class="price">Price: $300</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/agent_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Agent</p>
+            <p class="activity_time grey_text">4 стратегии</p>
+            <div class="price_row">
+                <p class="price">Price: $300</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/expert_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Expert</p>
+            <p class="activity_time grey_text">15 стратегий</p>
+            <div class="price_row">
+                <p class="price">Price: $1000</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/expert_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Expert</p>
+            <p class="activity_time grey_text">15 стратегий</p>
+            <div class="price_row">
+                <p class="price">Price: $1000</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/expert_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Expert</p>
+            <p class="activity_time grey_text">15 стратегий</p>
+            <div class="price_row">
+                <p class="price">Price: $1000</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="label_row">
+    <h3 class="label_name">Активность PRM</h3>
+</div>
+
+<section class="horizontal_scroll">
+    <div class="scroll">
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/max_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Study</p>
+            <p class="activity_time grey_text">1 стратегия</p>
+            <div class="price_row">
+                <p class="price">Price: $100</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/agent_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Agent</p>
+            <p class="activity_time grey_text">4 стратегии</p>
+            <div class="price_row">
+                <p class="price">Price: $300</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/agent_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Agent</p>
+            <p class="activity_time grey_text">4 стратегии</p>
+            <div class="price_row">
+                <p class="price">Price: $300</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/expert_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Expert</p>
+            <p class="activity_time grey_text">15 стратегий</p>
+            <div class="price_row">
+                <p class="price">Price: $1000</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/expert_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Expert</p>
+            <p class="activity_time grey_text">15 стратегий</p>
+            <div class="price_row">
+                <p class="price">Price: $1000</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+        <div class="mikro_tile">
+            <div class="preview">
+                <img class="heart_icon" src="{% static 'img/icons/heart_icon.svg' %}" alt="">
+                <img src="{% static 'img/expert_img.png' %}" alt="">
+            </div>
+            <p class="activity_name">Expert</p>
+            <p class="activity_time grey_text">15 стратегий</p>
+            <div class="price_row">
+                <p class="price">Price: $1000</p>
+                <button class="btn btn-slim">Купить</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock inner_bot %}

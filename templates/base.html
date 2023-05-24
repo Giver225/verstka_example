@@ -1,0 +1,51 @@
+{% load static i18n %}
+{#{% load django_htmx %}#}
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}PRM{% endblock title %}{% block head_title %}{% endblock head_title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PRM4ALL!">
+
+    <link rel="icon" href="{% static 'img/favicons/favicon-16x16.png' %}" sizes="16x16">
+    <link rel="icon" href="{% static 'img/favicons/favicon.ico' %}" sizes="32x32">
+    <link rel="icon" href="{% static 'img/favicons/favicon-196x196.png' %}" sizes="196x196" />
+    <link rel="apple-touch-icon" href="{% static 'img/favicons/favicon-196x196.png' %}" />
+
+    {% block css %}
+      <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block javascript %}
+      <script defer src="{% static 'js/vendors.min.js' %}"></script>
+      <script defer src="{% static 'js/project.min.js' %}"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7/web3.min.js"></script>
+      <script src="{% static 'js/constants.js' %}"></script>
+      {% endblock javascript %}
+
+  </head>
+
+  <body hx-ext="debug" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+
+    {% comment %} {% if messages %}
+      {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %} {% endcomment %}
+
+    {% block content %}
+    {% endblock content %}
+
+    {% block modal %}{% endblock modal %}
+
+    {% block inline_javascript %}
+    {% endblock inline_javascript %}
+
+  </body>
+</html>

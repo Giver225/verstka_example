@@ -1,0 +1,46 @@
+{% load humanize %}
+{% load i18n %}
+
+<section class="tile tile-lg"
+    hx-get="{% url 'dashboard:poll_user_transactions' %}"
+    hx-trigger="every 30s"
+    hx-swap="outerHTML">
+    <h2 class="big_name">{% translate "История начислений" %}</h2>
+    <div class="flexible-table">
+        <div class="row row-header">
+            <div class="cell">{% translate "От кого" %}</div>
+            <div class="cell">{% translate "Тип" %}</div>
+            <div class="cell">{% translate "Кол-во токенов" %}</div>
+            <div class="cell">{% translate "Дата начисления" %}</div>
+        </div>
+        {% for transaction in user_transactions %}
+            <div class="row">
+                <div class="cell">{{ transaction.buyer.username }}</div>
+                {% if transaction.reward and transaction.buyer.username != user.username %}
+                    <div class="cell">{% translate "бонус 5%" %}</div>
+                    <div class="cell">{{ transaction.reward|intcomma }}</div>
+                {% else %}
+                    <div class="cell">{% translate "покупка" %}</div>
+                    <div class="cell">{{ transaction.amount|intcomma }}</div>
+                {% endif %}
+                <div class="cell">{{ transaction.created_at|date:"d.b.Y" }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pages">
+        <select class="page_amount_selector">
+            <option>Показывать по 10 записей</option>
+            <option>Показывать по 25 записей</option>
+            <option>Показывать по 50 записей</option>
+        </select>
+        <ul class="pagination">
+            <li><button class="page_btn"><</button></li>
+            <li><button class="page_btn active_page">1</button></li>
+            <li><button class="page_btn">2</button></li>
+            <li><button class="page_btn">3</button></li>
+            <li><button class="page_btn">...</button></li>
+            <li><button class="page_btn">10</button></li>
+            <li><button class="page_btn">></button></li>
+        </ul>
+    </div>
+</section>
